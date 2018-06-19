@@ -38,7 +38,7 @@ FILE="$loc_loc"/"$servername"/mysql$servername-$NOW.gz
 #Dump MySql database to file
 ssh $ruser@$servername "mysqldump -q -u $dbuser -h $servername -p $dbpass $dbname | gzip -9" > $FILE
 #Copy files from server
-rsync -zcvf $ruser@$servername:$rem_loc/* $loc_loc/$servername/$servername_$NOW.tar.gz
+rsync -zcvf $ruser@$servername:$rem_loc/* $loc_loc/$servername/database/$servername_$NOW.tar.gz
 
 done
 # Version history
