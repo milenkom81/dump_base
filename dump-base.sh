@@ -38,12 +38,14 @@ FILE="$loc_loc"/"$servername"/mysql$servername-$NOW.gz
 #Dump MySql database to file
 ssh $ruser@$servername "mysqldump -q -u $dbuser -h $servername -p $dbpass $dbname | gzip -9" > $FILE
 #Copy files from server
-rsync -zcvf $ruser@$servername:$rem_loc/* $loc_loc/$servername/database/$servername_$NOW.tar.gz
+ssh $ruser@$servername "tar cvzf -/'$rem_loc'" > $loc_loc/$servername/database/$servername_$NOW.tar.gz
+#rsync -arv $ruser@$servername:$rem_loc/* $loc_loc/$servername/database/$servername_$NOW.tar.gz
 
 done
 # Version history
 #------------------
 # 1.0  setup basic read of parameters and dump mysql baze
+# 1.1 Changed line for download and zip on the fly for the remote folder
 
 
 
