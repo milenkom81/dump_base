@@ -1,0 +1,2 @@
+server1	dbname1	username1	pass1	/location1/local	serveruser1
+server2	dbname2	username2	pass2	/location2/local	serveruser2
